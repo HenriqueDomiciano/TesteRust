@@ -15,15 +15,15 @@ fn main() {
     let mut max_already  = HIGH_NUMB; 
     let mut min_already = LOW_NUMB;
     
-    while (true){
+    loop{
         let mut guess = String::new(); 
         println!("Coloque seu chute entre {}, {}",LOW_NUMB,HIGH_NUMB); 
         io::stdin().read_line(&mut guess).expect("Cannot read");
-        let mut number_guess:i32 = guess.trim().parse().expect("error converting");  
+        let number_guess:i32 = guess.trim().parse().expect("error converting");  
         match number_guess.cmp(&secret_number){
             Ordering::Less => {
                 println!("O número que vc selecionou é menor"); 
-                if (number_guess>min_already){
+                if number_guess>min_already {
                     min_already = number_guess; 
                 }
             }
@@ -33,7 +33,7 @@ fn main() {
             }, 
             Ordering::Greater=> {
                 println!("O número que vc selecionou é maior"); 
-                if (number_guess<max_already){
+                if number_guess<max_already {
                     max_already = number_guess; 
                 }
             },
@@ -46,13 +46,13 @@ fn main() {
             },
             Ordering::Greater=>{
                 println!("O número que o computador selecionou é maior foi {}", computer_guess);
-                if (computer_guess>max_already){
+                if computer_guess>max_already {
                     max_already = computer_guess; 
                 }
             },
             Ordering::Less=>{
                 println!("O número que o computador selecionou é menor foi {}",computer_guess); 
-                if (computer_guess>min_already){
+                if computer_guess>min_already {
                     min_already = computer_guess; 
                 }
             },
