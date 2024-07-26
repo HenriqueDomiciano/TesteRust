@@ -5,19 +5,18 @@ use::std::cmp::Ordering;
 fn main() {
     println!("Guess Game");
     
-
-    let HIGH_NUMB = 1000; 
-    let LOW_NUMB = 0; 
+    let high_numb = 100; 
+    let low_numb = 0; 
     
 
     let secret_number = rand::thread_rng().gen_range(0, 1000); 
-    let mut computer_guess = (HIGH_NUMB+LOW_NUMB)/2; 
-    let mut max_already  = HIGH_NUMB; 
-    let mut min_already = LOW_NUMB;
+    let mut computer_guess = (high_numb+low_numb)/2; 
+    let mut max_already  = high_numb; 
+    let mut min_already = low_numb;
     
     loop{
         let mut guess = String::new(); 
-        println!("Coloque seu chute entre {}, {}",LOW_NUMB,HIGH_NUMB); 
+        println!("Coloque seu chute entre {}, {}",low_numb,high_numb); 
         io::stdin().read_line(&mut guess).expect("Cannot read");
         let number_guess:i32 = guess.trim().parse().expect("error converting");  
         match number_guess.cmp(&secret_number){
@@ -59,7 +58,4 @@ fn main() {
             
         }
     }
-
-
-    //println!("Hello, world!");
 }
